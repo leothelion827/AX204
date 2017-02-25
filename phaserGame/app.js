@@ -17,7 +17,7 @@ game.physics.startSystem(Phaser.Physics.ARCADE);
 //add the sky
 game.add.sprite(0,0,'sky');
 platforms = game.add.physicsGroup();
-platform.enableBoy = true;
+platforms.enableBoy = true;
 //add the fround
 var ground = platforms.create(0,game.world.height-50,'ground');
 ground.scale.setTo(2,2);

@@ -5,11 +5,11 @@ var score = 0;
 var life = 0;
 
 function preload(){
-game.load.image('sky','assests/sky.png');
-game.load.image('ground','assests/platform.png');
-game.load.image('star','assests/star.png');
-game.load.spritesheet('dude','assests/dude.png',32,48);
-game.load.spritesheet('baddie','assests/baddie.png',32,32);
+game.load.image('sky','assets/sky.png');
+game.load.image('ground','assets/platform.png');
+game.load.image('star','assets/star.png');
+game.load.spritesheet('dude','assets/dude.png',32,48);
+game.load.spritesheet('baddie','assets/baddie.png',32,32);
 }
 
 function create(){

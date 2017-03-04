@@ -28,7 +28,7 @@ function create(){
 	ledge.body.inmovable = true;
 	ledge.body.inmovable = true;
 	//add the player
-	player.game.add.sprite(32,game.world.height - 220,'dude')
+	player = game.add.sprite(32,game.world.height - 220,'dude')
 	//adding player animations
 	player.animations.add('left',[0,1,2,3],10,true);
 	player.animations.add('right',[5,6,7,8],10,true);

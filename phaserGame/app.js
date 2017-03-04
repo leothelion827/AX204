@@ -17,16 +17,16 @@ function create(){
 	//add the sky
 	game.add.sprite(0,0,'sky');
 	platforms = game.add.physicsGroup();
-	platforms.enableBoy = true;
+	platforms.enableBody = true;
 	//add the fround
 	var ground = platforms.create(0,game.world.height-50,'ground');
 	ground.scale.setTo(2,2);
-	ground.body,inmovable = true;
+	ground.body.immovable = true;
 	//add the platforms
 	var ledge = platforms.create(400,400,'ground');
 	ledge = platforms.create(-150,250,'ground');
-	ledge.body.inmovable = true;
-	ledge.body.inmovable = true;
+	ledge.body.immovable = true;
+	ledge.body.immovable = true;
 	//add the player
 	player = game.add.sprite(32,game.world.height - 220,'dude')
 	//adding player animations

@@ -27,6 +27,7 @@ function create(){
 	ledge = platforms.create(-150,250,'ground');
 	ledge.body.immovable = true;
 	ledge.body.immovable = true;
+
 	//add the player
 	player = game.add.sprite(32,game.world.height - 220,'dude')
 	//adding player animations
@@ -36,8 +37,37 @@ function create(){
 	player.body.bounce.y = 0.2;
 	player.body.gravity.y = 300;
 	player.body.collideWorldBounds = true;
+
+	//create the baddie
+	enemy1 = game.add.sprite(765,20,'baddie')
+	enemy1.animations.add('left',[0,1],10,true);
+	enemy1.animations.add('right',[2,3],10,true);
+	game.physics.arcade.enable(enemy1);
+	enemy1.body.bounce.y = 0.2;
+	enemy1.body.gravity.y = 500;
+	enemy1.body.collideWorldBounds = true;
+
+	//create the baddie
+	enemy2 = game.add.sprite(10,20,'baddie')
+	enemy2.animations.add('left',[0,1],10,true);
+	enemy2.animations.add('right',[2,3],10,true);
+	game.physics.arcade.enable(enemy2);
+	enemy2.body.bounce.y = 0.2;
+	enemy2.body.gravity.y = 500;
+	enemy2.body.collideWorldBounds = true;
+
+	//create the baddie
+	enemy3 = game.add.sprite(200,20,'baddie')
+	enemy3.animations.add('left',[0,1],10,true);
+	enemy3.animations.add('right',[2,3],10,true);
+	game.physics.arcade.enable(enemy3);
+	enemy3.body.bounce.y = 0.2;
+	enemy3.body.gravity.y = 500;
+	enemy3.body.collideWorldBounds = true;
+
 	//create keyboard events
 	cursors = game.input.keyboard.createCursorKeys();
+
 	//create the stars
 	stars = game.add.physicsGroup();
 	stars.enableBody = true;
@@ -90,19 +120,60 @@ function update(){
 
 	}
 
+	//enemy AI
+	if(enemy1.x > 759){
+		enemy1.animations.play('left');
+		enemy1.body.velocity.x = '-120';
+	} else if (enemy1.x < 405){
+		enemy1.animations.play('right');
+		enemy1.body.velocity.x = 120;
+	}
+
+	if(enemy2.x > 200){
+		enemy2.animations.play('left');
+		enemy2.body.velocity.x = '-80';
+	} else if (enemy2.x < 21){
+		enemy2.animations.play('right');
+		enemy2.body.velocity.x = 80;
+	}
+
+	if(enemy3.x > 759){
+		enemy3.animations.play('left');
+		enemy3.body.velocity.x = '-150';
+	} else if (enemy3.x < 201){
+		enemy3.animations.play('right');
+		enemy3.body.velocity.x = 150;
+	}
+
     game.physics.arcade.collide(stars, platforms);
-    game.physics.arcade.overLap(player,stars,collectStar,null,this);
 
-    function collectStar(player,star){
-    	star.kill();
-    	score = score + 1;
-    	//reflect the score
-    	scoretext.setText(score);
-    	//create a new star
-    	star = stars.create(i * 70,0,'star');
-		star.body.gravity.y = 200;
-		star.body.bounce.y = 0.7 + Math.random() * 0.2;
+    game.physics.arcade.overlap(player,stars,collectStar,null,this);
+	game.physics.arcade.collide(enemy1, platforms);
+	game.physics.arcade.collide(enemy2, platforms);
+	game.physics.arcade.collide(enemy3, platforms);
 
-    }
+	game.physics.arcade.overlap(player,enemy1,loseLife,null,this);
+	game.physics.arcade.overlap(player,enemy1,loseLifeLeft,null,this);
+	game.physics.arcade.overlap(player,enemy3,lsoeLife,null,this);
+}
+
+function collectStar(player,star){
+	star.kill();
+	score = score + 1;
+	//reflect the score
+	scoretext.setText(score);
+	//create a new star
+	star = stars.create(i * 70,0,'star');
+	star.body.gravity.y = 200;
+	star.body.bounce.y = 0.7 + Math.random() * 0.2;
+
+}
+
+//define loselife
+function loseLife(player,enemy){
+	enemy.kill();
+	life = life - 1;
+	lifetext.setText(life);
+	enemy,reset(760,20);
 }
 

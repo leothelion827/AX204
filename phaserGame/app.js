@@ -154,7 +154,7 @@ function update(){
 
 	game.physics.arcade.overlap(player,enemy1,loseLife,null,this);
 	game.physics.arcade.overlap(player,enemy1,loseLifeLeft,null,this);
-	game.physics.arcade.overlap(player,enemy3,lsoeLife,null,this);
+	game.physics.arcade.overlap(player,enemy3,loseLife,null,this);
 }
 
 function collectStar(player,star){

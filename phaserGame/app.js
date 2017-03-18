@@ -41,7 +41,7 @@ function create(){
 
 	//create the baddie
 	enemy1 = game.add.sprite(765,20,'baddie')
-	enemy1.animations.add('left',[0,1n],10,true);
+	enemy1.animations.add('left',[0,1],10,true);
 	enemy1.animations.add('right',[2,3],10,true);
 	game.physics.arcade.enable(enemy1);
 	enemy1.body.bounce.y = 0.2;
@@ -150,7 +150,7 @@ function update(){
 
     game.physics.arcade.overlap(player,stars,collectStar,null,this);
 	game.physics.arcade.collide(enemy1, platforms);
-	game.physics.arcade.collide(enemy2, platforms);
+	game.physics.arcade.collide(enemy2, platform
 	game.physics.arcade.collide(enemy3, platforms);
 
 	game.physics.arcade.overlap(player,enemy1,loseLife,null,this);

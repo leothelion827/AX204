@@ -174,12 +174,12 @@ function loseLife(player,enemy){
 	enemy.kill();
 	life = life - 1;
 	lifetext.setText(life);
-	enemy,reset(760,20);
+	enemy.reset(760,20);
 }
 
 function loseLifeLeft(player,enemy){
 	enemy.kill();
 	life = life - 1;
 	lifetext.setText(life);
-	enemy,reset(10,20);
+	enemy.reset(10,20);
 }

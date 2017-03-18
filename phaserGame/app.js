@@ -108,7 +108,7 @@ function update(){
 	player.animations.play('left');
 
 	} else if (cursors.right.isDown){
-		player.body.velocity.y = 150;//moving sprite right
+		player.body.velocity.x = 150;//moving sprite right
 		player.animations.play('right');
 	} else{
 		player.animations.stop();

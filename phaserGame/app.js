@@ -124,15 +124,15 @@ function update(){
 	//enemy AI
 	if(enemy1.x > 759){
 		enemy1.animations.play('left');
-		enemy1.body.velocity.x = '-120';
+		enemy1.body.velocity.x = -120;
 	} else if (enemy1.x < 405){
 		enemy1.animations.play('right');
-		enemy1.body.velocity.x = 120;
+		enemy1.body.velocity.x = 120;			
 	}
 
 	if(enemy2.x > 200){
 		enemy2.animations.play('left');
-		enemy2.body.velocity.x = '-80';
+		enemy2.body.velocity.x = -80;
 	} else if (enemy2.x < 21){
 		enemy2.animations.play('right');
 		enemy2.body.velocity.x = 80;
@@ -140,7 +140,7 @@ function update(){
 
 	if(enemy3.x > 759){
 		enemy3.animations.play('left');
-		enemy3.body.velocity.x = '-150';
+		enemy3.body.velocity.x = -150;
 	} else if (enemy3.x < 201){
 		enemy3.animations.play('right');
 		enemy3.body.velocity.x = 150;
